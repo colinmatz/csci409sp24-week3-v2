@@ -1,6 +1,7 @@
 // Import necessary modules from Next.js
 import Head from 'next/head'
 import Link from 'next/link';
+import FlightsContent from '../components/flightsTable';
 
 function FlightsPage() {
   // Array containing flight data
@@ -26,16 +27,7 @@ function FlightsPage() {
             </thead>
             <tbody>
                 {flights.map((flight) => (
-                    <tr key={flight.id}>
-                        <td>
-                            <Link href={`/flights/${flight.id}`}>
-                                {flight.number}
-                            </Link>
-                        </td>
-                        <td>{flight.destination}</td>
-                        <td>{flight.origin}</td>
-                        <td>{flight.departureTime}</td>
-                    </tr>
+                    <FlightsContent flight={flight} />
                 ))}
             </tbody>
         </table>
